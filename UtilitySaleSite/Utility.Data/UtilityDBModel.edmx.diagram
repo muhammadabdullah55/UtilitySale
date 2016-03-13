@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e0cfc5007f3a4cce99971fd3c97a81f3" Name="Diagram1">
+        <EntityTypeShape EntityType="UtilitySaleDataModel.Admin_Users" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UtilitySaleDataModel.Store_Branches" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UtilitySaleDataModel.Store_Info" Width="1.5" PointX="3.375" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UtilitySaleDataModel.Store_Sale" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UtilitySaleDataModel.Utility" Width="1.5" PointX="0.5" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="UtilitySaleDataModel.FK_Store_Branches_Store_Info" ManuallyRouted="false" />
+        <AssociationConnector Association="UtilitySaleDataModel.FK_Store_Info_Utility" ManuallyRouted="false" />
+        <AssociationConnector Association="UtilitySaleDataModel.FK_Store_Sale_Store_Info" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="UtilitySaleDataModel.City" Width="1.5" PointX="0.75" PointY="0.5" />
+        <AssociationConnector Association="UtilitySaleDataModel.FK_Utility_City" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

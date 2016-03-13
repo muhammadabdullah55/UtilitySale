@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UtilitySaleDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin_Users">
+    <Key>
+      <PropertyRef Name="Admin_User_ID" />
+    </Key>
+    <Property Name="Admin_User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Admin_User_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Admin_Password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Created_On" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Updated_On" Type="DateTime" Precision="3" />
+    <Property Name="Updated_By" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Store_Branches">
+    <Key>
+      <PropertyRef Name="Store_Branch_ID" />
+    </Key>
+    <Property Name="Store_Branch_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Branch_Address" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Store_Info_ID" Type="Int32" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Created_On" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Updated_On" Type="DateTime" Precision="3" />
+    <Property Name="Updated_By" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Store_Info" Relationship="Self.FK_Store_Branches_Store_Info" FromRole="Store_Branches" ToRole="Store_Info" />
+  </EntityType>
+  <EntityType Name="Store_Info">
+    <Key>
+      <PropertyRef Name="Store_Info_ID" />
+    </Key>
+    <Property Name="Store_Info_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Store_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Utility_ID" Type="Int32" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Created_On" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Updated_On" Type="DateTime" Precision="3" />
+    <Property Name="Updated_By" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Store_Branches" Relationship="Self.FK_Store_Branches_Store_Info" FromRole="Store_Info" ToRole="Store_Branches" />
+    <NavigationProperty Name="Utility" Relationship="Self.FK_Store_Info_Utility" FromRole="Store_Info" ToRole="Utility" />
+    <NavigationProperty Name="Store_Sale" Relationship="Self.FK_Store_Sale_Store_Info" FromRole="Store_Info" ToRole="Store_Sale" />
+  </EntityType>
+  <EntityType Name="Store_Sale">
+    <Key>
+      <PropertyRef Name="Store_Sale_ID" />
+    </Key>
+    <Property Name="Store_Sale_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Store_Info_ID" Type="Int32" />
+    <Property Name="Sale_Text" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Created_On" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Updated_On" Type="DateTime" Precision="3" />
+    <Property Name="Updated_By" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Store_Info" Relationship="Self.FK_Store_Sale_Store_Info" FromRole="Store_Sale" ToRole="Store_Info" />
+  </EntityType>
+  <EntityType Name="Utility">
+    <Key>
+      <PropertyRef Name="Utility_ID" />
+    </Key>
+    <Property Name="Utility_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Utility_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Created_On" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Updated_On" Type="DateTime" Precision="3" />
+    <Property Name="Updated_By" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Store_Info" Relationship="Self.FK_Store_Info_Utility" FromRole="Utility" ToRole="Store_Info" />
+    <Property Name="City_ID" Type="Int32" />
+    <NavigationProperty Name="City" Relationship="UtilitySaleDataModel.FK_Utility_City" FromRole="Utility" ToRole="City" />
+  </EntityType>
+  <Association Name="FK_Store_Branches_Store_Info">
+    <End Role="Store_Info" Type="Self.Store_Info" Multiplicity="0..1" />
+    <End Role="Store_Branches" Type="Self.Store_Branches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Store_Info">
+        <PropertyRef Name="Store_Info_ID" />
+      </Principal>
+      <Dependent Role="Store_Branches">
+        <PropertyRef Name="Store_Info_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Store_Info_Utility">
+    <End Role="Utility" Type="Self.Utility" Multiplicity="0..1" />
+    <End Role="Store_Info" Type="Self.Store_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utility">
+        <PropertyRef Name="Utility_ID" />
+      </Principal>
+      <Dependent Role="Store_Info">
+        <PropertyRef Name="Utility_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Store_Sale_Store_Info">
+    <End Role="Store_Info" Type="Self.Store_Info" Multiplicity="0..1" />
+    <End Role="Store_Sale" Type="Self.Store_Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Store_Info">
+        <PropertyRef Name="Store_Info_ID" />
+      </Principal>
+      <Dependent Role="Store_Sale">
+        <PropertyRef Name="Store_Info_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UtilitySaleDBContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admin_Users" EntityType="Self.Admin_Users" />
+    <EntitySet Name="Store_Branches" EntityType="Self.Store_Branches" />
+    <EntitySet Name="Store_Info" EntityType="Self.Store_Info" />
+    <EntitySet Name="Store_Sale" EntityType="Self.Store_Sale" />
+    <EntitySet Name="Utilities" EntityType="Self.Utility" />
+    <AssociationSet Name="FK_Store_Branches_Store_Info" Association="Self.FK_Store_Branches_Store_Info">
+      <End Role="Store_Info" EntitySet="Store_Info" />
+      <End Role="Store_Branches" EntitySet="Store_Branches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Store_Info_Utility" Association="Self.FK_Store_Info_Utility">
+      <End Role="Utility" EntitySet="Utilities" />
+      <End Role="Store_Info" EntitySet="Store_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Store_Sale_Store_Info" Association="Self.FK_Store_Sale_Store_Info">
+      <End Role="Store_Info" EntitySet="Store_Info" />
+      <End Role="Store_Sale" EntitySet="Store_Sale" />
+    </AssociationSet>
+    <EntitySet Name="Cities" EntityType="UtilitySaleDataModel.City" />
+    <AssociationSet Name="FK_Utility_City" Association="UtilitySaleDataModel.FK_Utility_City">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Utility" EntitySet="Utilities" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="City_ID" />
+    </Key>
+    <Property Name="City_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="City_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Created_On" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Updated_On" Type="DateTime" Precision="3" />
+    <Property Name="Updated_By" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Utilities" Relationship="UtilitySaleDataModel.FK_Utility_City" FromRole="City" ToRole="Utility" />
+  </EntityType>
+  <Association Name="FK_Utility_City">
+    <End Type="UtilitySaleDataModel.City" Role="City" Multiplicity="0..1" />
+    <End Type="UtilitySaleDataModel.Utility" Role="Utility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="City_ID" />
+      </Principal>
+      <Dependent Role="Utility">
+        <PropertyRef Name="City_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

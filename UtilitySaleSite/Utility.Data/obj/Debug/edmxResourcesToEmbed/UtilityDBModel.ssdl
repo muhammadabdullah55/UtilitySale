@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UtilitySaleDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin_Users">
+    <Key>
+      <PropertyRef Name="Admin_User_ID" />
+    </Key>
+    <Property Name="Admin_User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Admin_User_Name" Type="varchar" MaxLength="200" />
+    <Property Name="Admin_Password" Type="varchar" MaxLength="200" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Created_On" Type="datetime" />
+    <Property Name="Created_By" Type="varchar" MaxLength="250" />
+    <Property Name="Updated_On" Type="datetime" />
+    <Property Name="Updated_By" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="City_ID" />
+    </Key>
+    <Property Name="City_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="City_Name" Type="varchar" MaxLength="250" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Created_On" Type="datetime" />
+    <Property Name="Created_By" Type="varchar" MaxLength="250" />
+    <Property Name="Updated_On" Type="datetime" />
+    <Property Name="Updated_By" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Store_Branches">
+    <Key>
+      <PropertyRef Name="Store_Branch_ID" />
+    </Key>
+    <Property Name="Store_Branch_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Branch_Address" Type="varchar" MaxLength="250" />
+    <Property Name="Store_Info_ID" Type="int" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Created_On" Type="datetime" />
+    <Property Name="Created_By" Type="varchar" MaxLength="250" />
+    <Property Name="Updated_On" Type="datetime" />
+    <Property Name="Updated_By" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Store_Info">
+    <Key>
+      <PropertyRef Name="Store_Info_ID" />
+    </Key>
+    <Property Name="Store_Info_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Store_Name" Type="varchar" MaxLength="250" />
+    <Property Name="Utility_ID" Type="int" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Created_On" Type="datetime" />
+    <Property Name="Created_By" Type="varchar" MaxLength="250" />
+    <Property Name="Updated_On" Type="datetime" />
+    <Property Name="Updated_By" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Store_Sale">
+    <Key>
+      <PropertyRef Name="Store_Sale_ID" />
+    </Key>
+    <Property Name="Store_Sale_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Store_Info_ID" Type="int" />
+    <Property Name="Sale_Text" Type="varchar" MaxLength="500" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Created_On" Type="datetime" />
+    <Property Name="Created_By" Type="varchar" MaxLength="250" />
+    <Property Name="Updated_On" Type="datetime" />
+    <Property Name="Updated_By" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Utility">
+    <Key>
+      <PropertyRef Name="Utility_ID" />
+    </Key>
+    <Property Name="Utility_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Utility_Name" Type="varchar" MaxLength="250" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Created_On" Type="datetime" />
+    <Property Name="Created_By" Type="varchar" MaxLength="250" />
+    <Property Name="Updated_On" Type="datetime" />
+    <Property Name="Updated_By" Type="varchar" MaxLength="250" />
+    <Property Name="City_ID" Type="int" />
+  </EntityType>
+  <Association Name="FK_Store_Branches_Store_Info">
+    <End Role="Store_Info" Type="Self.Store_Info" Multiplicity="0..1" />
+    <End Role="Store_Branches" Type="Self.Store_Branches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Store_Info">
+        <PropertyRef Name="Store_Info_ID" />
+      </Principal>
+      <Dependent Role="Store_Branches">
+        <PropertyRef Name="Store_Info_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Store_Info_Utility">
+    <End Role="Utility" Type="Self.Utility" Multiplicity="0..1" />
+    <End Role="Store_Info" Type="Self.Store_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utility">
+        <PropertyRef Name="Utility_ID" />
+      </Principal>
+      <Dependent Role="Store_Info">
+        <PropertyRef Name="Utility_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Store_Sale_Store_Info">
+    <End Role="Store_Info" Type="Self.Store_Info" Multiplicity="0..1" />
+    <End Role="Store_Sale" Type="Self.Store_Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Store_Info">
+        <PropertyRef Name="Store_Info_ID" />
+      </Principal>
+      <Dependent Role="Store_Sale">
+        <PropertyRef Name="Store_Info_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Utility_City">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="Utility" Type="Self.Utility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="City_ID" />
+      </Principal>
+      <Dependent Role="Utility">
+        <PropertyRef Name="City_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UtilitySaleDataModelStoreContainer">
+    <EntitySet Name="Admin_Users" EntityType="Self.Admin_Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Store_Branches" EntityType="Self.Store_Branches" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Store_Info" EntityType="Self.Store_Info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Store_Sale" EntityType="Self.Store_Sale" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Utility" EntityType="Self.Utility" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Store_Branches_Store_Info" Association="Self.FK_Store_Branches_Store_Info">
+      <End Role="Store_Info" EntitySet="Store_Info" />
+      <End Role="Store_Branches" EntitySet="Store_Branches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Store_Info_Utility" Association="Self.FK_Store_Info_Utility">
+      <End Role="Utility" EntitySet="Utility" />
+      <End Role="Store_Info" EntitySet="Store_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Store_Sale_Store_Info" Association="Self.FK_Store_Sale_Store_Info">
+      <End Role="Store_Info" EntitySet="Store_Info" />
+      <End Role="Store_Sale" EntitySet="Store_Sale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Utility_City" Association="Self.FK_Utility_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Utility" EntitySet="Utility" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
