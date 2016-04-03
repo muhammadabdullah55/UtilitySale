@@ -28,7 +28,7 @@ namespace Utility.Data
         public string Updated_By { get; set; }
         public Nullable<int> City_ID { get; set; }
     
-        public virtual ICollection<Store_Info> Store_Info { get; set; }
         public virtual City City { get; set; }
+        public virtual ICollection<Store_Info> Store_Info { get; set; }
     }
 }

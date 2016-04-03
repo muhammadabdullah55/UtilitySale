@@ -22,6 +22,7 @@ namespace Utility.Data
         public string Created_By { get; set; }
         public Nullable<System.DateTime> Updated_On { get; set; }
         public string Updated_By { get; set; }
+        public string Branch_Name { get; set; }
     
         public virtual Store_Info Store_Info { get; set; }
     }

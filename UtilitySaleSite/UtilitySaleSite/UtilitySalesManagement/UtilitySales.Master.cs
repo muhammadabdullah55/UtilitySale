@@ -20,7 +20,7 @@ namespace UtilitySaleSite.UtilitySalesManagement
                 List<Utility.Data.Utility> Utility = UtilityDataClass.GetAllUtilities();
                 foreach (var item in Utility)
                 {
-                    Menus += "<li  id=\"li"+item.Utility_ID+"\"  ><a href=\"Home.aspx?Utility="+ item.Utility_ID +"\";\"><i class=\"icon-home\"></i><span class=\"title\">"+item.Utility_Name+"</span><span  id=\"span"+item.Utility_ID+"\"></span></a></li>";
+                    Menus += "<li  id=\"li"+item.Utility_ID+"\"  ><a href=\"Home.aspx?Utility="+ item.Utility_ID +"\";\"><i ></i><span class=\"title\">"+item.Utility_Name+"</span><span  id=\"span"+item.Utility_ID+"\"></span></a></li>";
                     
                 }
 

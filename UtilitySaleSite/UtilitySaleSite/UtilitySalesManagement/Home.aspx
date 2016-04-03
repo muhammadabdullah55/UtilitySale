@@ -9,17 +9,12 @@
 
 
     <script type="text/javascript">
-        
-
-         
         $("#li"+<%=hdnUtilityID.Value%>+"").addClass("start active open");
         $("#span"+<%=hdnUtilityID.Value%>+"").addClass("selected");
-       
-
-  
-        
-
     </script>
+    
 
-    <h1 >Muhammad Abdullah</h1>
+   <asp:Literal runat="server" ID="literalUtilityInformation"></asp:Literal>
+
+   <h1><asp:Label runat="server" ID="lblText"></asp:Label></h1>
 </asp:Content>
