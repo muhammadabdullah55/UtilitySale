@@ -1,0 +1,14 @@
+D:\GitHubProjects\UtilitySaleSite\UtilitySaleSite\bin\UtilitySaleSite.dll.config
+D:\GitHubProjects\UtilitySaleSite\UtilitySaleSite\bin\UtilitySaleSite.dll
+D:\GitHubProjects\UtilitySaleSite\UtilitySaleSite\bin\UtilitySaleSite.pdb
+D:\GitHubProjects\UtilitySaleSite\UtilitySaleSite\bin\EntityFramework.dll
+D:\GitHubProjects\UtilitySaleSite\UtilitySaleSite\bin\EntityFramework.SqlServer.dll
+D:\GitHubProjects\UtilitySaleSite\UtilitySaleSite\bin\Utility.BLL.dll
+D:\GitHubProjects\UtilitySaleSite\UtilitySaleSite\bin\Utility.Data.dll
+D:\GitHubProjects\UtilitySaleSite\UtilitySaleSite\bin\Utility.BLL.pdb
+D:\GitHubProjects\UtilitySaleSite\UtilitySaleSite\bin\Utility.Data.pdb
+D:\GitHubProjects\UtilitySaleSite\UtilitySaleSite\bin\EntityFramework.xml
+D:\GitHubProjects\UtilitySaleSite\UtilitySaleSite\bin\EntityFramework.SqlServer.xml
+D:\GitHubProjects\UtilitySaleSite\UtilitySaleSite\obj\Release\UtilitySaleSite.csprojResolveAssemblyReference.cache
+D:\GitHubProjects\UtilitySaleSite\UtilitySaleSite\obj\Release\UtilitySaleSite.dll
+D:\GitHubProjects\UtilitySaleSite\UtilitySaleSite\obj\Release\UtilitySaleSite.pdb

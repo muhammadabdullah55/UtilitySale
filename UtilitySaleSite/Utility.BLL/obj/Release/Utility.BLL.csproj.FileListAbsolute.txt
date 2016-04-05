@@ -1,0 +1,12 @@
+D:\GitHubProjects\UtilitySaleSite\Utility.BLL\bin\Release\Utility.BLL.dll.config
+D:\GitHubProjects\UtilitySaleSite\Utility.BLL\bin\Release\Utility.BLL.dll
+D:\GitHubProjects\UtilitySaleSite\Utility.BLL\bin\Release\Utility.BLL.pdb
+D:\GitHubProjects\UtilitySaleSite\Utility.BLL\bin\Release\EntityFramework.dll
+D:\GitHubProjects\UtilitySaleSite\Utility.BLL\bin\Release\EntityFramework.SqlServer.dll
+D:\GitHubProjects\UtilitySaleSite\Utility.BLL\bin\Release\Utility.Data.dll
+D:\GitHubProjects\UtilitySaleSite\Utility.BLL\bin\Release\Utility.Data.pdb
+D:\GitHubProjects\UtilitySaleSite\Utility.BLL\bin\Release\EntityFramework.xml
+D:\GitHubProjects\UtilitySaleSite\Utility.BLL\bin\Release\EntityFramework.SqlServer.xml
+D:\GitHubProjects\UtilitySaleSite\Utility.BLL\obj\Release\Utility.BLL.csprojResolveAssemblyReference.cache
+D:\GitHubProjects\UtilitySaleSite\Utility.BLL\obj\Release\Utility.BLL.dll
+D:\GitHubProjects\UtilitySaleSite\Utility.BLL\obj\Release\Utility.BLL.pdb

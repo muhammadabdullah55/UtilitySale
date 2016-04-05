@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UtilitySaleDataModelStoreContainer" CdmEntityContainer="UtilitySaleDBContext">
+    <EntitySetMapping Name="Admin_Users">
+      <EntityTypeMapping TypeName="UtilitySaleDataModel.Admin_Users">
+        <MappingFragment StoreEntitySet="Admin_Users">
+          <ScalarProperty Name="Admin_User_ID" ColumnName="Admin_User_ID" />
+          <ScalarProperty Name="Admin_User_Name" ColumnName="Admin_User_Name" />
+          <ScalarProperty Name="Admin_Password" ColumnName="Admin_Password" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="Created_On" ColumnName="Created_On" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_On" ColumnName="Updated_On" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="UtilitySaleDataModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+          <ScalarProperty Name="City_Name" ColumnName="City_Name" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="Created_On" ColumnName="Created_On" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_On" ColumnName="Updated_On" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Store_Branches">
+      <EntityTypeMapping TypeName="UtilitySaleDataModel.Store_Branches">
+        <MappingFragment StoreEntitySet="Store_Branches">
+          <ScalarProperty Name="Store_Branch_ID" ColumnName="Store_Branch_ID" />
+          <ScalarProperty Name="Branch_Address" ColumnName="Branch_Address" />
+          <ScalarProperty Name="Store_Info_ID" ColumnName="Store_Info_ID" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="Created_On" ColumnName="Created_On" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_On" ColumnName="Updated_On" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Branch_Name" ColumnName="Branch_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Store_Info">
+      <EntityTypeMapping TypeName="UtilitySaleDataModel.Store_Info">
+        <MappingFragment StoreEntitySet="Store_Info">
+          <ScalarProperty Name="Store_Info_ID" ColumnName="Store_Info_ID" />
+          <ScalarProperty Name="Store_Name" ColumnName="Store_Name" />
+          <ScalarProperty Name="Utility_ID" ColumnName="Utility_ID" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="Created_On" ColumnName="Created_On" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_On" ColumnName="Updated_On" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Store_Sale">
+      <EntityTypeMapping TypeName="UtilitySaleDataModel.Store_Sale">
+        <MappingFragment StoreEntitySet="Store_Sale">
+          <ScalarProperty Name="Store_Sale_ID" ColumnName="Store_Sale_ID" />
+          <ScalarProperty Name="Store_Info_ID" ColumnName="Store_Info_ID" />
+          <ScalarProperty Name="Sale_Text" ColumnName="Sale_Text" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="Created_On" ColumnName="Created_On" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_On" ColumnName="Updated_On" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilities">
+      <EntityTypeMapping TypeName="UtilitySaleDataModel.Utility">
+        <MappingFragment StoreEntitySet="Utility">
+          <ScalarProperty Name="Utility_ID" ColumnName="Utility_ID" />
+          <ScalarProperty Name="Utility_Name" ColumnName="Utility_Name" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="Created_On" ColumnName="Created_On" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_On" ColumnName="Updated_On" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

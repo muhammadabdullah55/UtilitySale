@@ -7,3 +7,4 @@ D:\GitHubProjects\UtilitySaleSite\Utility.Data\bin\Debug\EntityFramework.xml
 D:\GitHubProjects\UtilitySaleSite\Utility.Data\bin\Debug\EntityFramework.SqlServer.xml
 D:\GitHubProjects\UtilitySaleSite\Utility.Data\obj\Debug\Utility.Data.dll
 D:\GitHubProjects\UtilitySaleSite\Utility.Data\obj\Debug\Utility.Data.pdb
+D:\GitHubProjects\UtilitySaleSite\Utility.Data\obj\Debug\Utility.Data.csprojResolveAssemblyReference.cache
